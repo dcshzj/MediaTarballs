@@ -15,19 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Configuration (TODO: Move to .conf file)
-# S3-like API keys (Get one at http://archive.org/account/s3.php)
-accesskey = ""
-secretkey = ""
-# Archive.org matters
-collection = ""
-mediatype = ""
-# Downloading information
-dldhost = "" # Wikimedia or Your.org
-method = "" # Wget or rsync
-
 # Nothing to change below...
 # Import required packages
+import ConfigParser
 import os
 import re
 import sys
@@ -39,9 +29,37 @@ filelist = {
 	'remote-media',
 	'local-media',
 }
+# End of global config declaration
 
 def welcome():
 	print "Welcome to the Media Tarballs uploading script"
 
 def bye():
 	print "Done uploading!"
+
+# Get information from .conf file
+def getConfInfo():
+	configFile = "mediatarballs.conf"
+	conffile = os.path.join(home,configFile)
+	defaults = {
+		# [auth]
+		"accesskey": "",
+		"secretkey": "",
+		# [item]
+		"collection": "wikimedia-other",
+		"mediatype": "web",
+		# [download]
+		"dldhost": "Your.org",
+		"method": "rsync"
+	}
+	conf = ConfigParser.SafeConfigParser(defaults)
+	conf.read(conffile)
+	parseConfFile()
+
+def parseConfFile():
+	accesskey = conf.get("auth", "accesskey")
+	secretkey = conf.get("auth", "secretkey")
+	collection = conf.get("item", "collection")
+	mediatype = conf.get("item", "mediatype")
+	dldhost = conf.get("download", "dldhost")
+	method = conf.get("download", "method")
