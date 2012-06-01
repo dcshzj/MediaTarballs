@@ -42,7 +42,7 @@ def welcome():
 	print "Scans the listing directory for wikis that have incremental dumps generated for them"
 
 def bye():
-	print "Done scanning. Output file is in result.txt of the same directory. Bye!"
+	print "Done uploading. Bye!"
 
 def listofwikis():
 	wikilist = open(wikifilelist).read().splitlines()
