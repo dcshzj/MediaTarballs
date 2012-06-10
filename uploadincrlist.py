@@ -39,7 +39,7 @@ filelist = {
 	'remote-media-incr.gz',
 }
 def welcome():
-	print "Scans the listing directory for wikis that have incremental dumps generated for them"
+	print "Archiving the incrementals file lists into one common item..."
 
 def bye():
 	print "Done uploading. Bye!"

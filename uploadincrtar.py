@@ -47,7 +47,7 @@ gzfilelist = {
 wikirightnow = ""
 count = 0
 def welcome():
-	print "Scans the listing directory for wikis that have incremental dumps generated for them"
+	print "Archiving the incremental dumps tarballs together with the lists."
 
 def bye():
 	print "Done uploading. Bye!"
