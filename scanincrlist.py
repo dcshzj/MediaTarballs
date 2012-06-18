@@ -21,7 +21,8 @@ import urllib
 
 # Global configuration
 # Full URL to the directory that hosts the incremental dumps list
-host = ""
+host = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/lists/20120617/"
+incrdate = "20120617"
 
 # Nothing to change below...
 def welcome():
@@ -34,15 +35,14 @@ def scanDir():
 	directory = urllib.urlopen(host)
 	raw = directory.read()
 	directory.close()
-	wikis = re.compile(r'<a href="(?P<lang>[^>]+)">[^<]+</a>').finditer(raw)
+	wikis = re.compile(r'<a href="(?P<wiki>[^>]+)-' + incrdate + '-local-media-incr.gz">[^<]+</a>').finditer(raw)
 	wikilisting = []
 	for wiki in wikis:
 		wikilisting.append([wiki.group('wiki')])
 	wikilist = wikilisting
 	for something in wikilist:
 		somethingelse = '\n'.join(something)
-		os.system("echo " + somethingelse + ">> output.txt")
-	os.system("sed 'n;d;' output.txt > result.txt")
+		os.system("echo " + somethingelse + ">> result.txt")
 
 def process():
 	welcome()
