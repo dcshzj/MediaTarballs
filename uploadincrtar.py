@@ -24,8 +24,8 @@ import urllib
 accesskey = ""
 secretkey = ""
 # Dump files
-host = ""
-listhost = ""
+url = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/tarballs/"
+listurl = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/lists/"
 incrdate = ""
 # Archive.org matters
 collection = ""
@@ -36,6 +36,8 @@ sizehint = "107374182400" # 100GB
 tempdir = ""
 
 # Nothing to change below...
+host = url + incrdate + "/"
+listhost = listurl + incrdate + "/"
 filelist = {
 	'local-media-incr-1.tar',
 	'remote-media-incr-1.tar',
