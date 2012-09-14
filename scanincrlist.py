@@ -22,7 +22,7 @@ import urllib
 # Global configuration
 # Full URL to the directory that hosts the incremental dumps list
 url = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/lists/"
-incrdate = "20120627"
+incrdate = "20120822"
 
 # Nothing to change below...
 host = url + incrdate + "/"
