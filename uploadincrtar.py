@@ -19,23 +19,11 @@ import os
 import re
 import urllib
 
-# Global configuration
-# S3-like API keys (Get one at http://archive.org/account/s3.php)
-accesskey = ""
-secretkey = ""
-# Dump files
-url = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/tarballs/"
-listurl = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/lists/"
-incrdate = ""
-# Archive.org matters
-collection = ""
-mediatype = ""
-# Other stuff
-wikifilelist = "result.txt" # /path/to/result.txt
-sizehint = "107374182400" # 100GB
-tempdir = ""
+import settings
 
-# Nothing to change below...
+# Nothing to change in this file, please configure at settings.py!
+url = incrurl
+listurl = incrlisturl
 host = url + incrdate + "/"
 listhost = listurl + incrdate + "/"
 filelist = {

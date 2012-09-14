@@ -19,12 +19,10 @@ import os
 import re
 import urllib
 
-# Global configuration
-# Full URL to the directory that hosts the incremental dumps list
-url = "http://ftpmirror.your.org/pub/wikimedia/imagedumps/tarballs/incrs/lists/"
-incrdate = "20120822"
+import settings
 
-# Nothing to change below...
+# Nothing to change in this file, please configure at settings.py!
+url = incrurl
 host = url + incrdate + "/"
 def welcome():
 	print "Scans the listing directory for wikis that have incremental dumps generated for them"
